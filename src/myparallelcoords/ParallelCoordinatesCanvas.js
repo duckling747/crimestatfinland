@@ -62,34 +62,32 @@ const ParallelCoordinatesCanvas = ({
         ctx.translate(margin.left, margin.top)
 
         lineGenerator.context(ctx)
-        var tmp;
+        let tmp;
         for (const datum of dataWithPoints) {
             const thisIsSelected = datum.Alue.endsWith(selected);
 
-            ctx.save()
             if (thisIsSelected) {
                 tmp = datum;
                 continue;
-            } else {
-                ctx.globalAlpha = lineOpacity;
-                ctx.lineWidth = strokeWidth;
-                ctx.strokeStyle = "#808080";
             }
-
-            ctx.beginPath()
-            lineGenerator(datum.points)
-            ctx.stroke()
-
-            ctx.restore()
+            ctx.save();
+            ctx.globalAlpha = lineOpacity;
+            ctx.lineWidth = strokeWidth;
+            ctx.strokeStyle = "#808080";
+            ctx.beginPath();
+            lineGenerator(datum.points);
+            ctx.stroke();
+            ctx.restore();
         }
         if (tmp) {
+            ctx.save();
             ctx.globalAlpha = 1;
             ctx.lineWidth = 5;
             ctx.strokeStyle = "#FF3131";
-            ctx.beginPath()
-            lineGenerator(tmp.points)
-            ctx.stroke()
-            ctx.restore()
+            ctx.beginPath();
+            lineGenerator(tmp.points);
+            ctx.stroke();
+            ctx.restore();
         }
 
         for (const variable of variablesWithScale) {
@@ -104,6 +102,7 @@ const ParallelCoordinatesCanvas = ({
             })
         }
         // allow legend for god sakes
+        ctx.save();
         ctx.rotate(-Math.PI/2);
         ctx.font = "100 15px Courier New";
         let x = -10;
@@ -111,6 +110,7 @@ const ParallelCoordinatesCanvas = ({
             ctx.strokeText(v.legend, -innerHeight+5, x);
             x = x + 0.167*innerWidth;
         }
+        ctx.restore();
     }, [
         canvasEl,
         outerWidth,

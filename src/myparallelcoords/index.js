@@ -8,4 +8,6 @@
  */
 export { default as ParallelCoordinates } from './ParallelCoordinates'
 export { default as ResponsiveParallelCoordinates } from './ResponsiveParallelCoordinates'
+export { default as ParallelCoordinatesCanvas } from './ParallelCoordinatesCanvas'
+export { default as ResponsiveParallelCoordinatesCanvas } from './ResponsiveParallelCoordinatesCanvas'
 export * from './props'
