@@ -1,0 +1,38 @@
+.parent {
+    display: flex;
+}
+
+.child {
+    flex: 1;
+}
+
+#slider_year {    
+    width: 100%;
+}
+
+#not_center {
+    width: 90vw;
+    text-align: center;
+    padding: 80px 20px 20px 20px;
+}
+
+@media screen and (max-width: 1010px) {
+    .parent {
+        display: table;
+    }
+    .child {
+        display: table-column;
+    }
+    #not_center {
+        text-align: left;
+        width: 455px;
+    }
+}
+
+#map_section {
+    text-align: center;
+}
+
+.leaflet-fade-anim .leaflet-tile,.leaflet-zoom-anim .leaflet-zoom-animated {
+    will-change:auto !important;
+}
