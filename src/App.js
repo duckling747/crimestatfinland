@@ -1,10 +1,10 @@
-import { Slider, createTheme, ThemeProvider } from '@material-ui/core';
+import { Slider, createTheme, ThemeProvider, responsiveFontSizes } from '@material-ui/core';
 import { useState } from 'react';
 import DetailsDisplay from './components/DetailsDisplay';
 import MapDisplay from './components/MapDisplay';
 import "./App.css";
 
-const theme = createTheme({
+let theme = createTheme({
   palette: {
     primary: {
       main: "#FF3131"
@@ -13,7 +13,9 @@ const theme = createTheme({
       main: "#6495ED"
     }
   }
-})
+});
+
+theme = responsiveFontSizes(theme);
 
 const yearsAvailable = [...Array(2020-1987+1).keys()].map(y => y+1987);
 
