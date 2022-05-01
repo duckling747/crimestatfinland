@@ -6,3 +6,6 @@ The project is deployed at Heroku, [here](https://crimestatsfinland.herokuapp.co
 
 ## Backend
 The backend code is written in C++ and using Crow. Its source code can be found [here](https://github.com/duckling747/csfbackend).
+
+## GeoJSON
+The GeoJSONs this project uses are courtesy of [this nice person](https://dataist.wordpress.com/2012/12/16/finnish-regional-geodata-as-geojson-and-kml/). On the website it says "Feel free to use them", so I did. Thank you. 
