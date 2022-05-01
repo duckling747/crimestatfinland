@@ -7,7 +7,7 @@ import "./App.css";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#008000"
+      main: "#C20000"
     },
     secondary: {
       main: "#6495ED"
@@ -15,9 +15,12 @@ const theme = createTheme({
   }
 })
 
-const App = () => {
+const yearsAvailable = [...Array(2020-1987+1).keys()].map(y => y+1987);
 
-  const yearsAvailable = [...Array(2020-1987+1).keys()].map(y => y+1987);
+const getText = (v) => `${v}`;
+
+
+const App = () => {
 
   const [year, setYear] = useState(yearsAvailable[0]);
 
@@ -25,12 +28,9 @@ const App = () => {
 
   const [mk, setMk] = useState(true);
 
-  const radiobtnsOnChange = (e, v) => {
+  const radiobtnsOnChange = (_e, v) => {
     setYear(v);
   }
-
-  const getText = (v) => `${v}`;
-
 
   return (
     <>
@@ -55,8 +55,12 @@ const App = () => {
           </ThemeProvider>
         </div>
         <div className="parent">
-          <MapDisplay year={year} setRegion={setRegion} setMk={setMk} className="child" />
-          <DetailsDisplay mk={mk} year={year} region={region} className="child" />
+          <MapDisplay year={year} setRegion={setRegion} setMk={setMk}
+            className="child"
+          />
+          <DetailsDisplay mk={mk} year={year} region={region}
+            className="child"
+          />
         </div>
       </section>
     </>

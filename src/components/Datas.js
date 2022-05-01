@@ -42,7 +42,7 @@ export const getAllKkFeatures = () => {
 
 export const getTotalMkCrimes = (year, area) => {
     const ref = tmap.get(year);
-    for (let i = 0; i < ref.length; i++) {
+    for (let i = ref.length-1; i >= 0; i--) {
         if (ref[i].Alue.endsWith(area) && ref[i].Alue.startsWith("MK")) {
             return ref[i].value;
         }
@@ -52,7 +52,7 @@ export const getTotalMkCrimes = (year, area) => {
 
 export const getTotalKkCrimes = (year, area) => {
     const ref = tmap.get(year);
-    for (let i = 0; i < ref.length; i++) {
+    for (let i = ref.length-1; i >= 0; i--) {
         if (ref[i].Alue === area) {
             return ref[i].value;
         }

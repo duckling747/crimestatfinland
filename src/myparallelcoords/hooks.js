@@ -10,14 +10,14 @@ export const computeParallelCoordinatesLayout = ({ width, height, data, variable
 
     const range = layout === 'horizontal' ? [height, 0] : [0, width]
     
-    var variablesWithScale = new Array(variables.length);
-    for (var i = variables.length-1; i >= 0; i--) {
+    let variablesWithScale = new Array(variables.length);
+    for (let i = variables.length-1; i >= 0; i--) {
         const allValues = new Set()
         for (const d of data) {
             allValues.add(d[variables[i].key]);
         }
 
-        var scale;
+        let scale;
         if (variables[i].type === 'linear') {
             const min =
                 variables[i].min !== undefined && variables[i].min !== 'auto'
@@ -47,10 +47,10 @@ export const computeParallelCoordinatesLayout = ({ width, height, data, variable
         }
     }
 
-    var dataWithPoints = new Array(data.length);
-    for (i = data.length-1; i >= 0; i--) {
-        var points = new Array(variablesWithScale.length);
-        for (var j = variablesWithScale.length-1; j >= 0; j--) {
+    let dataWithPoints = new Array(data.length);
+    for (let i = data.length-1; i >= 0; i--) {
+        let points = new Array(variablesWithScale.length);
+        for (let j = variablesWithScale.length-1; j >= 0; j--) {
             points[j] = {
                 x:
                     layout === 'horizontal'

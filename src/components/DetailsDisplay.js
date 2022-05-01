@@ -13,7 +13,6 @@ const variables = [
         legend: 'Property crimes',
         legendPosition: 'start',
         legendOffset: 20,
-        highlight: true
     },
     {
         key:"B Henkeen ja terveyteen kohdistuneet rikokset",
@@ -121,7 +120,6 @@ const DetailsDisplay = (props) => {
                         }
                     }
                 }}
-                animate={true}
             />
         </div>
     )
