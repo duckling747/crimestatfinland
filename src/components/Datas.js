@@ -20,7 +20,7 @@ JSONstat(totalcrime).toTable({ type: "arrobj" })
             })
         }
     });
-console.log(tmap)
+
 const cmap = new Map();
 JSONstat(categoricalCrime).toTable({ type: "arrobj" })
     .forEach(e => {
