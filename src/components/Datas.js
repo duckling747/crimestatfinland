@@ -8,15 +8,16 @@ const tmap = new Map();
 JSONstat(totalcrime).toTable({ type: "arrobj" })
     .forEach(e => {
         e.Vuosi = Number(e.Vuosi);
+        if (e.Alue.startsWith("Maarian")) {
+            e.Alue = "Maarianhamina";
+        }
         if (!tmap.has(e.Vuosi)) {
             tmap.set(e.Vuosi, [{
-                ...e,
-                "Alue": (e.Alue.startsWith("Maarian")) ? "Maarianhamina" : e.Alue
+                ...e
             }]);
         } else {
             tmap.get(e.Vuosi).push({
-                ...e,
-                "Alue": (e.Alue.startsWith("Maarian")) ? "Maarianhamina" : e.Alue
+                ...e
             })
         }
     });
