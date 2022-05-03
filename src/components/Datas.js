@@ -10,18 +10,23 @@ JSONstat(totalcrime).toTable({ type: "arrobj" })
         e.Vuosi = Number(e.Vuosi);
         if (!tmap.has(e.Vuosi)) {
             tmap.set(e.Vuosi, [{
-                ...e
+                ...e,
+                "Alue": (e.Alue.startsWith("Maarian")) ? "Maarianhamina" : e.Alue
             }]);
         } else {
             tmap.get(e.Vuosi).push({
-                ...e
+                ...e,
+                "Alue": (e.Alue.startsWith("Maarian")) ? "Maarianhamina" : e.Alue
             })
         }
     });
-
+console.log(tmap)
 const cmap = new Map();
 JSONstat(categoricalCrime).toTable({ type: "arrobj" })
     .forEach(e => {
+        if (e.Alue.startsWith("Maarian")) {
+            e.Alue = "Maarianhamina";
+        }
         e.Vuosi = Number(e.Vuosi);
         if (!cmap.has(e.Vuosi)) {
             cmap.set(e.Vuosi, new Map());
